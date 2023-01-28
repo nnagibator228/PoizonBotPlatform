@@ -107,10 +107,13 @@ def create_userfile(id):
     return user_tmp.put(name=filename, data=json.dumps(user_json_model), content_type="application/json")
 
 def download_image(url, filename):
-	response = requests.get(url, stream=True)
-	with open(f'/tmp/{filename}.png', 'wb') as out_file:
-		shutil.copyfileobj(response.raw, out_file)
-	del response
+	try:
+		response = requests.get(url, stream=True)
+		with open(f'/tmp/{filename}.png', 'wb') as out_file:
+			shutil.copyfileobj(response.raw, out_file)
+		del response
+	except Exception as e:
+		move_file(f"./{filename}.png", f"/tmp/{filename}.png")
 
 def add_admin(id):
 	user = user_db.put({
