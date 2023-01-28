@@ -35,6 +35,11 @@ all_orders = deta.Base('AllOrders')
 confirmed_orders = deta.Base('ConfirmedOrders')
 user_tmp = deta.Drive("usertmp")
 
+# ------------------------------- INITIAL FUNCTIONS -------------------------------
+def create_userfile(id):
+    filename = str(id)+'.json'
+    return user_tmp.put(name=filename, data=json.dumps(user_json_model), content_type="application/json")
+
 def download_image(url, filename):
 	response = requests.get(url, stream=True)
 	with open(f'{filename}.png', 'wb') as out_file:
@@ -124,10 +129,6 @@ def order_formula(type, price):
 # ------------------------------- DATA CONTROL FUNCTIONS -------------------------------
 
 # ~USER FUNCTIONS~
-def create_userfile(id):
-    filename = str(id)+'.json'
-    return user_tmp.put(name=filename, data=json.dumps(user_json_model), content_type="application/json")
-
 def modify_userfile(id, val, field, category=None):
 	filename = str(id)+'.json'
 	file = json.loads(json.load(user_tmp.get(name=filename)))
