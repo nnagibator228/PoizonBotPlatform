@@ -12,7 +12,7 @@
         {
             "key": "ABOUT",
             "description": "Текст, который будет отображаться в разделе \"О нас\".",
-            "value": "powered by PoizonBot (<link>)",
+            "value": "powered by PoizonBot (github.com/nnagibator228/PoizonBotPlatform)",
             "required": false
         },
         {
@@ -24,7 +24,7 @@
         {
             "key": "MAINMENU",
             "description": "Текст, который будет отображаться в главном меню бота.",
-            "value": "PoizonBot - удобная телеграмм-платформа для тех, кто занимается логистикой из Китая. ",
+            "value": "PoizonBot - удобная телеграмм-платформа для тех, кто занимается логистикой из Китая.",
             "required": false
         },
         {
