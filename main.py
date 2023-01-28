@@ -511,8 +511,8 @@ def send_faq(id):
 
 def send_about(id):
 	reply = json.dumps({'inline_keyboard': [
-			[{'text': "👉🏼 Наша группа в ВК", 'url': "https://vk.com/nooffencestore"}],
-			[{'text': "👉🏼 Наша группа в TG", 'url': "https://t.me/nooffencestore"}]
+			[{'text': "👉🏼 Наша группа в ВК", 'url': str(vk_link)}],
+			[{'text': "👉🏼 Наша группа в TG", 'url': str(tg_link)}]
 		]
 	})
 	mes_params = {
