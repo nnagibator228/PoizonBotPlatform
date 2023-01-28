@@ -99,8 +99,8 @@ def check_regex(regex, string):
 def order_formula(type, price):
     return commission+((item_weight[type]/1000)*kg_cost)+(price*change)
 
-def move_file(current_path, new_path):
-    shutil.move(f"{str(current_path)}", f"{str(new_path)}")
+def copy_file(current_path, new_path):
+    shutil.copyfile(f"{str(current_path)}", f"{str(new_path)}")
 
 def create_userfile(id):
     filename = str(id)+'.json'
@@ -113,7 +113,7 @@ def download_image(url, filename):
 			shutil.copyfileobj(response.raw, out_file)
 		del response
 	except Exception as e:
-		move_file(f"./{filename}.png", f"/tmp/{filename}.png")
+		copy_file(f"./{filename}.png", f"/tmp/{filename}.png")
 
 def add_admin(id):
 	user = user_db.put({
