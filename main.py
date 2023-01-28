@@ -35,33 +35,6 @@ all_orders = deta.Base('AllOrders')
 confirmed_orders = deta.Base('ConfirmedOrders')
 user_tmp = deta.Drive("usertmp")
 
-# ------------------------------- INITIAL FUNCTIONS -------------------------------
-def create_userfile(id):
-    filename = str(id)+'.json'
-    return user_tmp.put(name=filename, data=json.dumps(user_json_model), content_type="application/json")
-
-def download_image(url, filename):
-	response = requests.get(url, stream=True)
-	with open(f'{filename}.png', 'wb') as out_file:
-		shutil.copyfileobj(response.raw, out_file)
-	del response
-
-def add_admin(id):
-	user = user_db.put({
-		"key": str(id),
-		"state": "MAIN_MENU",
-		"lvl": "admin"
-	})
-	create_userfile(id)
-	return user
-
-if mainimage_url is not None:
-    download_image(mainimage_url, "main.png")
-if aboutimage_url is not None:
-    download_image(aboutimage_url, "about.png")
-if admin_id is not None:
-    add_admin(admin_id)
-
 app = FastAPI()
 security = HTTPBasic()
 
@@ -125,6 +98,32 @@ def check_regex(regex, string):
 
 def order_formula(type, price):
     return commission+((item_weight[type]/1000)*kg_cost)+(price*change)
+
+def create_userfile(id):
+    filename = str(id)+'.json'
+    return user_tmp.put(name=filename, data=json.dumps(user_json_model), content_type="application/json")
+
+def download_image(url, filename):
+	response = requests.get(url, stream=True)
+	with open(f'{filename}.png', 'wb') as out_file:
+		shutil.copyfileobj(response.raw, out_file)
+	del response
+
+def add_admin(id):
+	user = user_db.put({
+		"key": str(id),
+		"state": "MAIN_MENU",
+		"lvl": "admin"
+	})
+	create_userfile(id)
+	return user
+
+if mainimage_url is not None:
+    download_image(mainimage_url, "main.png")
+if aboutimage_url is not None:
+    download_image(aboutimage_url, "about.png")
+if admin_id is not None:
+    add_admin(admin_id)
 
 # ------------------------------- DATA CONTROL FUNCTIONS -------------------------------
 
