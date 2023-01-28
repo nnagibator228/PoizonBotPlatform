@@ -1,0 +1,6 @@
+fastapi
+requests
+deta
+pillow
+python-multipart
+

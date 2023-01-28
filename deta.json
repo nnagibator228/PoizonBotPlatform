@@ -1,0 +1,67 @@
+{
+    "name": "PoizonBot",
+    "description": "Готовый Telegram-бот, автоматизиующий прием заявок и рассчет стоимости, для тех, кто занимается доставкой товаров с маркетплейсов Китая.",
+    "runtime": "python3.9",
+    "env": [
+        {
+            "key": "TOKEN",
+            "description": "Токен Telegram-бота. Получить его можно через @BotFather (необходимо отключить возможность добавлять бота в группы)",
+            "value": null,
+            "required": true
+        },
+        {
+            "key": "ABOUT",
+            "description": "Текст, который будет отображаться в разделе \"О нас\".",
+            "value": "powered by PoizonBot (<link>)",
+            "required": false
+        },
+        {
+            "key": "ABOUTIMG",
+            "description": "Изображение, которое будет отображаться в разделе \"О нас\".",
+            "value": null,
+            "required": false
+        },
+        {
+            "key": "MAINMENU",
+            "description": "Текст, который будет отображаться в главном меню бота.",
+            "value": "PoizonBot - удобная телеграмм-платформа для тех, кто занимается логистикой из Китая. ",
+            "required": false
+        },
+        {
+            "key": "MAINIMG",
+            "description": "Изображение, которое будет отображаться в главном меню бота.",
+            "value": null,
+            "required": false
+        },
+        {
+            "key": "USERNAME",
+            "description": "Имя пользователя для функций администратора",
+            "value": "admin",
+            "required": false
+        },
+        {
+            "key": "PASSWORD",
+            "description": "Пароль для функций администратора",
+            "value": "@poizonbotthebest))1234",
+            "required": false
+        },
+        {
+            "key": "VKLINK",
+            "description": "Ссылка на социальные сети вашего проекта (VK)",
+            "value": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            "required": false
+        },
+        {
+            "key": "TGLINK",
+            "description": "Ссылка на социальные сети вашего проекта (Telegram)",
+            "value": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            "required": false
+        },
+        {
+            "key": "ADMINID",
+            "description": "ID-пользователя, который будет назначен администратором бота. (Узнать id можно через @userinfobot)",
+            "value": null,
+            "required": true
+        }
+    ]
+}
