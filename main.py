@@ -99,13 +99,16 @@ def check_regex(regex, string):
 def order_formula(type, price):
     return commission+((item_weight[type]/1000)*kg_cost)+(price*change)
 
+def move_file(current_path, new_path):
+    shutil.move(f"{str(current_path)}", f"{str(new_path)}")
+
 def create_userfile(id):
     filename = str(id)+'.json'
     return user_tmp.put(name=filename, data=json.dumps(user_json_model), content_type="application/json")
 
 def download_image(url, filename):
 	response = requests.get(url, stream=True)
-	with open(f'{filename}.png', 'wb') as out_file:
+	with open(f'/tmp/{filename}.png', 'wb') as out_file:
 		shutil.copyfileobj(response.raw, out_file)
 	del response
 
@@ -119,9 +122,15 @@ def add_admin(id):
 	return user
 
 if mainimage_url is not None:
-    download_image(mainimage_url, "main.png")
+    download_image(mainimage_url, "main")
+else:
+    move_file("./main.png", "/tmp/main.png")
+
 if aboutimage_url is not None:
-    download_image(aboutimage_url, "about.png")
+    download_image(aboutimage_url, "about")
+else:
+    move_file("./about.png", "/tmp/about.png")
+
 if admin_id is not None:
     add_admin(admin_id)
 
@@ -248,7 +257,7 @@ def display_menu(id):
 		"parse_mode": "markdown",
 		"reply_markup": reply
     }
-	resp = requests.post(url_image+(f"?chat_id={id}"), files={'photo': open("./main.png", 'rb')}, params=mes_params)
+	resp = requests.post(url_image+(f"?chat_id={id}"), files={'photo': open("/tmp/main.png", 'rb')}, params=mes_params)
 	return resp.content
 
 
@@ -519,7 +528,7 @@ def send_about(id):
 		"caption": str(about_text),
 		"reply_markup": reply
 	}
-	resp = requests.post(url_image+(f"?chat_id={id}"), files={'photo': open("./about.png", 'rb')}, params=mes_params)
+	resp = requests.post(url_image+(f"?chat_id={id}"), files={'photo': open("/tmp/about.png", 'rb')}, params=mes_params)
 	return resp.content
 
 def display_order(id, order):
