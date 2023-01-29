@@ -127,12 +127,12 @@ def add_admin(id):
 if mainimage_url is not None:
     download_image(mainimage_url, "main")
 else:
-    move_file("./main.png", "/tmp/main.png")
+    copy_file("./main.png", "/tmp/main.png")
 
 if aboutimage_url is not None:
     download_image(aboutimage_url, "about")
 else:
-    move_file("./about.png", "/tmp/about.png")
+    copy_file("./about.png", "/tmp/about.png")
 
 if admin_id is not None:
     add_admin(admin_id)
