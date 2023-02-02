@@ -3,4 +3,4 @@
 
 [![Deploy](https://button.deta.dev/1/svg)](https://go.deta.dev/deploy?github.com/nnagibator228/PoizonBotPlatform.git)  
 
-[![Buy me a coffee](https://github.com/nnagibator228/PoizonBotPlatform/blob/main/da_button.svg)](https://www.donationalerts.com/r/plzdontcry)
+[![Buy me a coffee](https://github.com/nnagibator228/PoizonBotPlatform/blob/main/da_button.png)](https://www.donationalerts.com/r/plzdontcry)
