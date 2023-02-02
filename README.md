@@ -47,24 +47,30 @@ URL, указываемые для изображений, должны напр
 ## Команды бота
 - `/start` - команда для инициализации
 - `/menu` - главное меню бота
+
 ![Меню](https://github.com/nnagibator228/PoizonBotPlatform/blob/main/menu_img.png)
 - `/about` - информация о компании
+
 ![Раздел Онас](https://github.com/nnagibator228/PoizonBotPlatform/blob/main/about_img.png)
 - `/faq` - инструкции по работе с площадками
 - `/calculator` - рассчет стоимости товара
+
 ![Калькулятор стоимости](https://github.com/nnagibator228/PoizonBotPlatform/blob/main/calc_img.png)
 - `/order` - после прохождения капчи позволяет оформить заказ, проверяя вводимую информацию
 ![Оформление заказа](https://github.com/nnagibator228/PoizonBotPlatform/blob/main/order_img.png)
   
 ## Функции администратора
 - Модерация заявок
+
 ![Функции модерации #1](https://github.com/nnagibator228/PoizonBotPlatform/blob/main/mod_img.png)
 ![Функции модерации #2](https://github.com/nnagibator228/PoizonBotPlatform/blob/main/mod2_img.png)
 - Настройка курса, комиссии, стоимости килограмма доставки
+
 ![Изменение переменных рассчета](https://github.com/nnagibator228/PoizonBotPlatform/blob/main/var_img.png)
 - Просмотр заявок
 `/allorders` - просмотр заявок в модерации
 `/confirmedorders` - просмотр принятых заказов
+
 ![Просмотр заявок](https://github.com/nnagibator228/PoizonBotPlatform/blob/main/list_img.png)
   
 
