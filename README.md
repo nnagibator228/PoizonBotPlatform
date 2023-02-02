@@ -57,6 +57,7 @@ URL, указываемые для изображений, должны напр
 
 ![Калькулятор стоимости](https://github.com/nnagibator228/PoizonBotPlatform/blob/main/calc_img.png)
 - `/order` - после прохождения капчи позволяет оформить заказ, проверяя вводимую информацию
+
 ![Оформление заказа](https://github.com/nnagibator228/PoizonBotPlatform/blob/main/order_img.png)
   
 ## Функции администратора
