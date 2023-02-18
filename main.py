@@ -1,6 +1,7 @@
 import os
 envs = os.environ
 token = envs['TOKEN'] if 'TOKEN' in envs else None
+collection_token = envs['COLTOKEN'] if 'COLTOKEN' in envs else "None"
 about_text = envs['ABOUT'] if 'ABOUT' in envs else "powered by poizonbot"
 mainmenu_text = envs['MAINMENU'] if 'MAINMENU' in envs else "Проект poizonbot"
 adminpanel_username = envs['USERNAME'] if 'USERNAME' in envs else "admin"
@@ -29,7 +30,10 @@ import json
 import re
 from pydantic import BaseModel
 
-deta = Deta()
+if (collection_token != "None") and (collection_token is not None):
+	deta = Deta(collection_token)
+else:
+    deta = Deta()
 user_db = deta.Base('UserDB')
 all_orders = deta.Base('AllOrders')
 confirmed_orders = deta.Base('ConfirmedOrders')

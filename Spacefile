@@ -1,0 +1,46 @@
+# Spacefile Docs: https://go.deta.dev/docs/spacefile/v0
+v: 0
+app_name: PznBotPlatform
+micros:
+   - name: main_bot_micro
+     src: .
+     engine: python3.9
+     primary: true
+     public_routes:
+       - "/*"
+       - "/"
+     presets:
+       env:
+        - name: TOKEN
+          description: Токен Telegram-бота. Получить его можно через @BotFather (необходимо отключить возможность добавлять бота в группы)
+          default: ""
+        - name: ABOUT
+          description: Текст, который будет отображаться в разделе О нас
+          default: "powered by PoizonBot (github.com/nnagibator228/PoizonBotPlatform)"
+        - name: ABOUTIMG
+          description: Изображение, которое будет отображаться в разделе О нас
+          default: ""
+        - name: MAINMENU
+          description: Текст, который будет отображаться в главном меню бота
+          default: "PoizonBot - удобная телеграмм-платформа для тех, кто занимается логистикой из Китая."
+        - name: MAINIMG
+          description: Изображение, которое будет отображаться в главном меню бота
+          default: ""
+        - name: USERNAME
+          description: Имя пользователя для функций администратора
+          default: "admin"
+        - name: PASSWORD
+          description: Пароль для функций администратора
+          default: "@poizonbotthebest))1234"
+        - name: VKLINK
+          description: Ссылка на социальные сети вашего проекта (VK)
+          default: "https://github.com/nnagibator228/PoizonBotPlatform"
+        - name: TGLINK
+          description: Ссылка на социальные сети вашего проекта (Telegram)
+          default: "https://github.com/nnagibator228/PoizonBotPlatform"
+        - name: ADMINID
+          description: ID-пользователя, который будет назначен администратором бота. (Узнать id можно через @userinfobot)
+          default: ""
+        - name: COLTOKEN
+          description: Ключ доступа к коллекции, где хранятся данные для миграции. (Если не знаете, что это - оставьте поле None!)
+          default: "None"
