@@ -1,6 +1,7 @@
 # Spacefile Docs: https://go.deta.dev/docs/spacefile/v0
 v: 0
 app_name: PznBotPlatform
+icon: for_detaspace.png
 micros:
    - name: main_bot_micro
      src: .
