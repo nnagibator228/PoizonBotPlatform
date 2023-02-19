@@ -1,7 +1,7 @@
 # PoizonBotPlatform
 Serverless Telegram-платформа с открытым исходным кодом для тех, для тех, кто занимается доставкой товаров с маркетплейсов Китая.
 
-[![Deploy](https://button.deta.dev/1/svg)](https://go.deta.dev/deploy?github.com/nnagibator228/PoizonBotPlatform.git)  
+[![Deploy](https://button.deta.dev/1/svg)](https://deta.space/discovery/r/1y1jp1dyqfkgq7kh)  
 
 [![Buy me a coffee](https://github.com/nnagibator228/PoizonBotPlatform/blob/main/da_button.png)](https://www.donationalerts.com/r/plzdontcry)
 
@@ -24,7 +24,7 @@ Serverless Telegram-платформа с открытым исходным ко
 - **Готово!** Теперь можете переходить к следующему шагу
 
 ## Запуск сервиса
-Теперь необходимо запустить сервис бота. Для этого нужно нажать на розовую кнопку и заполнить поля в открывшейся странице
+Теперь необходимо запустить сервис бота. Для этого нужно нажать на розовую кнопку. На открывшейся странице нажать **"Install on Space"**, авторизироваться и заполнить поля в открывшейся странице.
 > ⚠️  **Учтите, неправильное заполнение полей может привести к ошибкам в работе бота или вовсе вывести его из строя!** ⚠️ 
 
 URL, указываемые для изображений, должны напрямую вести к файлу картинки, например:
