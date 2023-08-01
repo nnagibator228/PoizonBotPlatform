@@ -74,7 +74,7 @@ URL, указываемые для изображений, должны напр
 
 ![Просмотр заявок](https://github.com/nnagibator228/PoizonBotPlatform/blob/main/list_img.png)
   
-#Техническая информация
+# Техническая информация
 
 ## Стэк
  - Python
