@@ -2,5 +2,6 @@ fastapi
 requests
 deta
 Pillow
+image
 python-multipart
 
