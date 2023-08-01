@@ -1,6 +1,6 @@
 fastapi
 requests
 deta
-pillow
+Pillow
 python-multipart
 
