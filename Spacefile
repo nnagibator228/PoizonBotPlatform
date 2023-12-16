@@ -18,6 +18,12 @@ micros:
         - name: ABOUT
           description: Текст, который будет отображаться в разделе О нас
           default: "powered by PoizonBot (github.com/nnagibator228/PoizonBotPlatform)"
+        - name: INFO
+          description: Текст, который будет отображаться в разделе Информация
+          default: "all info about PoizonBot is here github.com/nnagibator228/PoizonBotPlatform"
+        - name: ITEMS
+          description: Текст, который будет отображаться в разделе Товары в наличии
+          default: "here would be link about items to buy"
         - name: ABOUTIMG
           description: Изображение, которое будет отображаться в разделе О нас
           default: ""
@@ -39,6 +45,15 @@ micros:
         - name: TGLINK
           description: Ссылка на социальные сети вашего проекта (Telegram)
           default: "https://github.com/nnagibator228/PoizonBotPlatform"
+        - name: REVIEWLINK
+          description: Ссылка на отзывы о вашем проекте
+          default: "https://github.com/nnagibator228/PoizonBotPlatform"
+        - name: CHATLINK
+          description: Ссылка на чат вашего проекта
+          default: "https://github.com/nnagibator228/PoizonBotPlatform"
+        - name: EXTFORMULA
+          description: true/false - учитывать ли приблизительный вес категорий товаров при рассчете
+          default: "true"
         - name: ADMINID
           description: ID-пользователя, который будет назначен администратором бота. (Узнать id можно через @userinfobot)
           default: ""

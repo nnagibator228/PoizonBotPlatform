@@ -1,8 +1,16 @@
 import os
+
+def proceed_bool_env(env):
+	if env.lower() in ['true', '1']: return True
+	elif env.lower() in ['false', '0']: return False
+	else: return None
+
 envs = os.environ
 token = envs['TOKEN'] if 'TOKEN' in envs else None
 collection_token = envs['COLTOKEN'] if 'COLTOKEN' in envs else "None"
 about_text = envs['ABOUT'] if 'ABOUT' in envs else "powered by poizonbot"
+info_text = envs['INFO'] if 'INFO' in envs else "info about poizonbot"
+items_text = envs['ITEMS'] if 'ITEMS' in envs else "items are here - https://google.com"
 mainmenu_text = envs['MAINMENU'] if 'MAINMENU' in envs else "Проект poizonbot"
 adminpanel_username = envs['USERNAME'] if 'USERNAME' in envs else "admin"
 adminpanel_password = envs['PASSWORD'] if 'PASSWORD' in envs else "@poizonbotthebest))1234"
@@ -10,8 +18,10 @@ mainimage_url = envs['MAINIMG'] if 'MAINIMG' in envs else None
 aboutimage_url = envs['ABOUTIMG'] if 'ABOUTIMG' in envs else None
 vk_link = envs['VKLINK'] if 'VKLINK' in envs else "https://www.youtube.com/watch?v=dQw4w9WgXcQ" # установить ссылку на репозиторий бота
 tg_link = envs['TGLINK'] if 'TGLINK' in envs else "https://www.youtube.com/watch?v=dQw4w9WgXcQ" # установить ссылку на репозиторий бота
+review_link = envs['REVIEWLINK'] if 'REVIEWLINK' in envs else "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+chat_link = envs['CHATLINK'] if 'CHATLINK' in envs else "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 admin_id = envs['ADMINID'] if 'ADMINID' in envs else None
-
+use_extended_formula = proceed_bool_env(envs['EXTFORMULA']) if 'EXTFORMULA' in envs and proceed_bool_env(envs['EXTFORMULA']) is not None else True
 
 base_url = "https://api.telegram.org/bot"
 
@@ -101,7 +111,10 @@ def check_regex(regex, string):
     return False
 
 def order_formula(type, price):
-    return commission+((item_weight[type]/1000)*kg_cost)+(price*change)
+    final_price = 0
+    if use_extended_formula: final_price = commission+((item_weight[type]/1000)*kg_cost)+(price*change)
+    else: final_price = price * change + commission
+    return final_price
 
 def copy_file(current_path, new_path):
     shutil.copyfile(f"{str(current_path)}", f"{str(new_path)}")
@@ -538,6 +551,26 @@ def send_about(id):
 	resp = requests.post(url_image+(f"?chat_id={id}"), files={'photo': open("/tmp/about.png", 'rb')}, params=mes_params)
 	return resp.content
 
+def send_contact(id):
+	reply = json.dumps({'inline_keyboard': [
+			[{'text': "👉🏼 Отзывы", 'url': str(review_link)}],
+			[{'text': "👉🏼 Наш чат", 'url': str(chat_link)}]
+		]
+	})
+	mes_params = {
+		"caption": str(info_text),
+		"reply_markup": reply
+	}
+	resp = requests.post(url_image+(f"?chat_id={id}"), files={'photo': open("/tmp/about.png", 'rb')}, params=mes_params)
+	return resp.content
+
+def send_items(id):
+	mes_params = {
+		"caption": str(info_text)
+	}
+	resp = requests.post(url, params=mes_params)
+	return resp.content
+
 def display_order(id, order):
 	text = f"Заказ номер `{order['key']}`:\n\n"
 	text += f"*Id клиента:* {order['id']}\n"
@@ -669,6 +702,8 @@ def handle_command(mess):
 		command_answer = make_order(chat_id)
 	elif mess["text"] == "/about":
 		command_answer = send_about(chat_id)
+	elif mess["text"] == "/contact":
+		command_answer = send_contact(chat_id)
 	elif mess["text"] == "/faq":
 		command_answer = send_faq(chat_id)
 
@@ -830,6 +865,10 @@ def handle_queries(quer):
 		resp = send_faq(chat_id)
 	elif quer["data"] == "about":
 		resp = send_about(chat_id)
+	elif quer["data"] == "contact":
+		resp = send_contact(chat_id)
+	elif quer["data"] == "items":
+		resp = send_items(chat_id)
 	elif quer["data"].startswith("confirm"):
 		if user["lvl"] == "admin":
 			key = quer["data"].replace("confirm", "")
