@@ -566,7 +566,7 @@ def send_contact(id):
 
 def send_items(id):
 	mes_params = {
-		"caption": str(info_text)
+		"caption": str(items_text)
 	}
 	resp = requests.post(url, params=mes_params)
 	return resp.content
@@ -702,6 +702,8 @@ def handle_command(mess):
 		command_answer = make_order(chat_id)
 	elif mess["text"] == "/about":
 		command_answer = send_about(chat_id)
+	elif mess["text"] == "/items":
+		command_answer = send_items(chat_id)
 	elif mess["text"] == "/contact":
 		command_answer = send_contact(chat_id)
 	elif mess["text"] == "/faq":
