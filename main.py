@@ -281,7 +281,7 @@ def display_menu(id):
 				{"text": "ℹ️ О нас", "callback_data": "/about"},
 			],
 			[
-				{"text": "💬 Чат и отзывы", "callback_data": "/info"},
+				{"text": "💬 Чат и отзывы", "callback_data": "/contact"},
 				{"text": "🛟 FAQ", "callback_data": "/faq"},
 			]
 		],
@@ -712,17 +712,17 @@ def handle_command(mess):
 	elif mess["text"] == "/menu":
 		change_user_state(chat_id, "MAIN_MENU")
 		command_answer = display_menu(chat_id)
-	elif mess["text"] == "/calculator":
+	elif mess["text"] == "/calculator" or mess["text"] == "🧮 Калькулятор":
 		command_answer = price_calc(chat_id)
-	elif mess["text"] == "/order":
+	elif mess["text"] == "/order" or mess["text"] == "⚡️ Заказать":
 		command_answer = make_order(chat_id)
-	elif mess["text"] == "/about":
+	elif mess["text"] == "/about" or mess["text"] == "ℹ️ О нас":
 		command_answer = send_about(chat_id)
-	elif mess["text"] == "/items":
+	elif mess["text"] == "/items" or mess["text"] == "📦 Товары в наличии":
 		command_answer = send_items(chat_id)
-	elif mess["text"] == "/contact":
+	elif mess["text"] == "/contact" or mess["text"] == "💬 Чат и отзывы":
 		command_answer = send_contact(chat_id)
-	elif mess["text"] == "/faq":
+	elif mess["text"] == "/faq" or mess["text"] == "🛟 FAQ":
 		command_answer = send_faq(chat_id)
 
 	if user is not None:
