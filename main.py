@@ -270,7 +270,23 @@ def display_menu(id):
 			[{'text': '🛒 Оформить заказ', 'callback_data': 'makeorder'}],
 			[{'text': '👥 Информация о компании, гарантии', 'callback_data': 'about'}],
 			[{'text': '❓ Как заказать?', 'callback_data': 'howtoorder'}]
-		]
+		],
+		'keyboard': [
+			[
+				{"text": "🧮 Калькулятор", "callback_data": "/calculator"},
+				{"text": "⚡️ Заказать", "callback_data": "/order"},
+			],
+			[
+				{"text": "📦 Товары в наличии", "callback_data": "/items"},
+				{"text": "ℹ️ О нас", "callback_data": "/about"},
+			],
+			[
+				{"text": "💬 Чат и отзывы", "callback_data": "/info"},
+				{"text": "🛟 FAQ", "callback_data": "/faq"},
+			]
+		],
+		"is_persistent": True,
+		"resize_keyboard": True
 	})
 	mes_params = {
 		"caption": str(mainmenu_text),
