@@ -54,6 +54,14 @@ security = HTTPBasic()
 
 emojis = ['🃏', '🎤', '🎥', '🎨', '🎩', '🎬', '🎭', '🎮', '🎯', '🎱', '🎲', '🎷', '🎸', '🎹', '🎾', '🏀', '🏆', '🏈', '🏉', '🏐', '🏓', '💠', '💡', '💣', '💨', '💸', '💻', '💾', '💿', '📈', '📉', '📊', '📌', '📍', '📎', '📏', '📐', '📞', '📟', '📠', '📡', '📢', '📣', '📦', '📹', '📺', '📻', '📼', '📽', '🖥', '🖨', '🖲', '🗂', '🗃', '🗄', '🗜', '🗝', '🗡', '🚧', '🚨', '🛒', '🛠', '🛢', '🧀', '🌭', '🌮', '🌯', '🌺', '🌻', '🌼', '🌽', '🌾', '🌿', '🍊', '🍋', '🍌', '🍍', '🍎', '🍏', '🍚', '🍛', '🍜', '🍝', '🍞', '🍟', '🍪', '🍫', '🍬', '🍭', '🍮', '🍯', '🍺', '🍻', '🍼', '🍽', '🍾', '🍿', '🎊', '🎋', '🎍', '🎏', '🎚', '🎛', '🎞', '🐌', '🐍', '🐎', '🐚', '🐛', '🐝', '🐞', '🐟', '🐬', '🐭', '🐮', '🐯', '🐻', '🐼', '🐿', '👛', '👜', '👝', '👞', '👟', '💊', '💋', '💍', '💎', '🔋', '🔌', '🔪', '🔫', '🔬', '🔭', '🔮', '🕯', '🖊', '🖋', '🖌', '🖍', '🥚', '🥛', '🥜', '🥝', '🥞', '🦊', '🦋', '🦌', '🦍', '🦎', '🦏', '🌀', '🌂', '🌑', '🌕', '🌡', '🌤', '⛅️', '🌦', '🌧', '🌨', '🌩', '🌰', '🌱', '🌲', '🌳', '🌴', '🌵', '🌶', '🌷', '🌸', '🌹', '🍀', '🍁', '🍂', '🍃', '🍄', '🍅', '🍆', '🍇', '🍈', '🍉', '🍐', '🍑', '🍒', '🍓', '🍔', '🍕', '🍖', '🍗', '🍘', '🍙', '🍠', '🍡', '🍢', '🍣', '🍤', '🍥', '🍦', '🍧', '🍨', '🍩', '🍰', '🍱', '🍲', '🍴', '🍵', '🍶', '🍷', '🍸', '🍹', '🎀', '🎁', '🎂', '🎃', '🎄', '🎈', '🎉', '🎒', '🎓', '🎙', '🐀', '🐁', '🐂', '🐃', '🐄', '🐅', '🐆', '🐇', '🐕', '🐉', '🐓', '🐖', '🐗', '🐘', '🐙', '🐠', '🐡', '🐢', '🐣', '🐤', '🐥', '🐦', '🐧', '🐨', '🐩', '🐰', '🐱', '🐴', '🐵', '🐶', '🐷', '🐸', '🐹', '👁\u200d🗨', '👑', '👒', '👠', '👡', '👢', '💄', '💈', '🔗', '🔥', '🔦', '🔧', '🔨', '🔩', '🔰', '🔱', '🕰', '🕶', '🕹', '🖇', '🚀', '🤖', '🥀', '🥁', '🥂', '🥃', '🥐', '🥑', '🥒', '🥓', '🥔', '🥕', '🥖', '🥗', '🥘', '🥙', '🦀', '🦁', '🦂', '🦃', '🦄', '🦅', '🦆', '🦇', '🦈', '🦉', '🦐', '🦑', '⭐️', '⏰', '⏲', '⚠️', '⚡️', '⚰️', '⚽️', '⚾️', '⛄️', '⛅️', '⛈', '⛏', '⛓', '⌚️', '☎️', '⚜️', '✏️', '⌨️', '☁️', '☃️', '☄️', '☕️', '☘️', '☠️', '♨️', '⚒', '⚔️', '⚙️', '✈️', '✉️', '✒️']
 
+reply_keyboard_buttons = {
+  "🧮 Калькулятор" : "/calculator",
+  "⚡️ Заказать" : "/order",
+  "📦 Товары в наличии" : "/items",
+  "ℹ️ О нас" : "/about",
+  "💬 Чат и отзывы" : "/contact",
+  "🛟 FAQ" : "/faq"
+}
 
 class sendMessage(BaseModel):
 	update_id: int
@@ -271,20 +279,7 @@ def display_menu(id):
 			[{'text': '👥 Информация о компании, гарантии', 'callback_data': 'about'}],
 			[{'text': '❓ Как заказать?', 'callback_data': 'howtoorder'}]
 		],
-		'keyboard': [
-			[
-				{"text": "🧮 Калькулятор", "callback_data": "/calculator"},
-				{"text": "⚡️ Заказать", "callback_data": "/order"},
-			],
-			[
-				{"text": "📦 Товары в наличии", "callback_data": "/items"},
-				{"text": "ℹ️ О нас", "callback_data": "/about"},
-			],
-			[
-				{"text": "💬 Чат и отзывы", "callback_data": "/contact"},
-				{"text": "🛟 FAQ", "callback_data": "/faq"},
-			]
-		],
+		'keyboard': [[{"text": k, "callback_data": v} for k, v in list(reply_keyboard_buttons.items())[i:i+2]] for i in range(0, len(reply_keyboard_buttons), 2)],
 		"is_persistent": True,
 		"resize_keyboard": True
 	})
@@ -363,12 +358,11 @@ def send_text(id, text="Test"):
     return resp.content
 
 def send_captcha_prompt(id):
-	res = "& "
 	try:
 		captcha = EmojiCaptcha(file_name=f"captcha{id}", background="./background.png")
 		generated_captcha = captcha.generate()
 	except Exception as e:
-		res = str(e)
+		resp = str(e)
 
 	reply = json.dumps({'inline_keyboard': [
 			[{'text': str(i), 'callback_data': str(i)} for i in generated_captcha.variants]
@@ -378,10 +372,10 @@ def send_captcha_prompt(id):
 		"caption": "🤖 Подтвердите свою человечность!\nНажмите на эмодзи, соответствующий изображению.",
 		"reply_markup": reply
 	}
-	resp = requests.post(url_image+(f"?chat_id={id}"), files={'photo': open(f"/tmp/captcha{id}.png", 'rb')}, params=mes_params)
+	resp = requests.post(url_image+(f"?chat_id={id}"), files={'photo': open(f"/tmp/captcha{id}.png", 'rb')}, params=mes_params).content
 	generated_captcha.remove()
 	modify_userfile(id, generated_captcha.answer, "captcha_answer", "order")
-	return resp.content
+	return resp
 
 def send_ordersize_prompt(id):
     type = get_userfile(id)["order"]["type"]
@@ -580,13 +574,6 @@ def send_contact(id):
 	resp = requests.post(url_image+(f"?chat_id={id}"), files={'photo': open("/tmp/about.png", 'rb')}, params=mes_params)
 	return resp.content
 
-def send_items(id):
-	mes_params = {
-		"caption": str(items_text)
-	}
-	resp = requests.post(url, params=mes_params)
-	return resp.content
-
 def display_order(id, order):
 	text = f"Заказ номер `{order['key']}`:\n\n"
 	text += f"*Id клиента:* {order['id']}\n"
@@ -697,8 +684,15 @@ def handle_message(mess):
 		else:
 			answer = None
 	else:
-		answer = handle_input(mess)
+		if mess["text"] in reply_keyboard_buttons.keys():
+			answer = handle_replykeyboard(mess)
+		else:
+			answer = handle_input(mess)
 	return answer
+
+def handle_replykeyboard(mess):
+	mess["text"] = reply_keyboard_buttons[mess["text"]]
+	return handle_command(mess)
 
 def handle_command(mess):
 	chat_id = mess["from"]["id"]
@@ -712,17 +706,17 @@ def handle_command(mess):
 	elif mess["text"] == "/menu":
 		change_user_state(chat_id, "MAIN_MENU")
 		command_answer = display_menu(chat_id)
-	elif mess["text"] == "/calculator" or mess["text"] == "🧮 Калькулятор":
+	elif mess["text"] == "/calculator":
 		command_answer = price_calc(chat_id)
-	elif mess["text"] == "/order" or mess["text"] == "⚡️ Заказать":
+	elif mess["text"] == "/order":
 		command_answer = make_order(chat_id)
-	elif mess["text"] == "/about" or mess["text"] == "ℹ️ О нас":
+	elif mess["text"] == "/about":
 		command_answer = send_about(chat_id)
-	elif mess["text"] == "/items" or mess["text"] == "📦 Товары в наличии":
-		command_answer = send_items(chat_id)
-	elif mess["text"] == "/contact" or mess["text"] == "💬 Чат и отзывы":
+	elif mess["text"] == "/items":
+		command_answer = send_text(chat_id, str(items_text))
+	elif mess["text"] == "/contact":
 		command_answer = send_contact(chat_id)
-	elif mess["text"] == "/faq" or mess["text"] == "🛟 FAQ":
+	elif mess["text"] == "/faq":
 		command_answer = send_faq(chat_id)
 
 	if user is not None:
@@ -886,7 +880,7 @@ def handle_queries(quer):
 	elif quer["data"] == "contact":
 		resp = send_contact(chat_id)
 	elif quer["data"] == "items":
-		resp = send_items(chat_id)
+		resp = send_text(chat_id, str(items_text))
 	elif quer["data"].startswith("confirm"):
 		if user["lvl"] == "admin":
 			key = quer["data"].replace("confirm", "")
