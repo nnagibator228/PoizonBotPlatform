@@ -3,7 +3,7 @@ import random
 import uuid
 from typing import List
 
-from PIL.Image import core as image
+import PIL.Image as Image
 
 from captcha import Captcha
 
@@ -2604,7 +2604,7 @@ class EmojiCaptcha:
             random.randint(0, 360), resample=Image.BICUBIC, expand=True
         )
         img.thumbnail((200, 200), Image.ANTIALIAS)
-        background.paste(img, (180, 160), img)
+        # background.paste(img, (180, 160), img)
         captcha_image_path = os.path.join("/tmp", f"{self.file_name}.png")
         background.save(captcha_image_path, "PNG", quality=100)
 
