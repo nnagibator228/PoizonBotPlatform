@@ -36,6 +36,7 @@ from deta import Deta
 import requests
 import secrets
 import shutil
+import html
 import json
 import re
 from pydantic import BaseModel
@@ -348,15 +349,15 @@ def send_ordercost_prompt(id, price):
     resp = requests.post(url, params=mes_params)
     return resp.content
 
-def get_rid_of_protocol(url: str):
-    url = re.sub(r'http[s]?://', '', url)
-    return url
+def escape_special_chars(text):
+   text = html.escape(text)
+   return text
 
 def send_text(id, text="Test"):
     mes_params = {
 	"chat_id": id,
-	"parse_mode": "markdown",
-	"text": get_rid_of_protocol(text)
+	"parse_mode": "HTML",
+	"text": escape_special_chars(text)
 	}
     resp = requests.post(url, params=mes_params)
     return resp.content
