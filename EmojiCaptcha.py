@@ -3,7 +3,7 @@ import random
 import uuid
 from typing import List
 
-import PIL.Image as Image
+import Image as Image
 
 from captcha import Captcha
 
